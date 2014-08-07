@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Class-Path: lib/xuggle-xuggler-5.4.jar lib/slf4j-api-1.7.7.jar lib/com
+ mons-cli-1.2.jar lib/logback-core-1.1.2.jar lib/logback-classic-1.1.2
+ .jar
+Build-Jdk: 1.7.0_40
+Built-By: Kishore
+Created-By: Maven Integration for Eclipse
+Main-Class: com.ilupilu.ecm.ConvertVideo
+
