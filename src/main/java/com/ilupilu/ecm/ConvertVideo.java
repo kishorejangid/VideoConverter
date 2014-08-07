@@ -18,11 +18,13 @@ public class ConvertVideo extends MediaToolAdapter implements Runnable {
     public static void main(String[] args)
     {
         try {
-            File inFile=new File("C:\\Users\\Kishore\\Downloads\\Video\\movie1_2.wmv");
+            System.out.println("Convertion stating..");
+            File inFile=new File("C:\\Users\\Kishore\\Downloads\\Video\\7333990.mp4");
             File outFile = new File("D:\\Kishore\\Sample.mp4");
             outFile.createNewFile();
             ConvertVideo convertVideo=new ConvertVideo(inFile,outFile);
             convertVideo.run();
+            System.out.println("Convertion completed...");
         }
         catch(Exception e){
             e.printStackTrace();
@@ -52,8 +54,8 @@ public class ConvertVideo extends MediaToolAdapter implements Runnable {
         if (streamCoder.getCodecType() == ICodec.Type.CODEC_TYPE_AUDIO) {
             writer.addAudioStream(streamIndex, streamIndex, 2, 44100);
         } else if (streamCoder.getCodecType() == ICodec.Type.CODEC_TYPE_VIDEO) {
-            streamCoder.setWidth(VIDEO_WIDTH);
-            streamCoder.setHeight(VIDEO_HEIGHT);
+            //streamCoder.setWidth(VIDEO_WIDTH);
+            //streamCoder.setHeight(VIDEO_HEIGHT);
             writer.addVideoStream(streamIndex, streamIndex, VIDEO_WIDTH, VIDEO_HEIGHT);
         }
         super.onAddStream(event);
