@@ -40,7 +40,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.ilupilu.ecm.ConvertVideo</mainClass>
+                            <!--<mainClass>com.ilupilu.ecm.DecodeAndPlayVideo</mainClass>-->
                         </manifest>
                     </archive>
                 </configuration>
@@ -54,12 +54,6 @@
             <artifactId>xuggle-xuggler</artifactId>
             <version>5.4</version>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>RELEASE</version>
-            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>commons-cli</groupId>
@@ -84,6 +78,11 @@
             <artifactId>junit</artifactId>
             <version>RELEASE</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.7</version>
         </dependency>
     </dependencies>
     <developers>

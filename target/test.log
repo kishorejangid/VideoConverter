@@ -1,0 +1,11 @@
+2857 [main] ERROR org.ffmpeg - [swscaler @ 000000000ACB00E0] 0bpp not supported by yuv2rgb 
+2881 [main] ERROR org.ffmpeg - [swscaler @ 000000000ACB00E0] dxva2_vld is not supported as output pixel format 
+2882 [main] DEBUG com.xuggle.xuggler - error: could not allocate a image rescaler (../../../../../../../csrc/com/xuggle/xuggler/VideoResampler.cpp:288) 
+1513 [main] ERROR org.ffmpeg - [swscaler @ 000000000A8700E0] 0bpp not supported by yuv2rgb 
+1518 [main] ERROR org.ffmpeg - [swscaler @ 000000000A8700E0] vdpau_mpeg4 is not supported as output pixel format 
+1519 [main] DEBUG com.xuggle.xuggler - error: could not allocate a image rescaler (../../../../../../../csrc/com/xuggle/xuggler/VideoResampler.cpp:288) 
+2997 [main] ERROR org.ffmpeg - [swscaler @ 000000000A6600E0] 0bpp not supported by yuv2rgb 
+3000 [main] ERROR org.ffmpeg - [swscaler @ 000000000A6600E0] vdpau_mpeg4 is not supported as output pixel format 
+3001 [main] DEBUG com.xuggle.xuggler - error: could not allocate a image rescaler (../../../../../../../csrc/com/xuggle/xuggler/VideoResampler.cpp:288) 
+3336 [main] ERROR org.ffmpeg - [swscaler @ 000000000B2100E0] uyyvyy411 is not supported as output pixel format 
+3339 [main] DEBUG com.xuggle.xuggler - error: could not allocate a image rescaler (../../../../../../../csrc/com/xuggle/xuggler/VideoResampler.cpp:288) 

@@ -15,24 +15,8 @@ import java.io.File;
 
 public class ConvertVideo extends MediaToolAdapter implements Runnable {
 
-    public static void main(String[] args)
-    {
-        try {
-            System.out.println("Convertion stating..");
-            File inFile=new File("C:\\Users\\Kishore\\Downloads\\Video\\7333990.mp4");
-            File outFile = new File("D:\\Kishore\\Sample.mp4");
-            outFile.createNewFile();
-            ConvertVideo convertVideo=new ConvertVideo(inFile,outFile);
-            convertVideo.run();
-            System.out.println("Convertion completed...");
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    private int VIDEO_WIDTH = 712;
-    private int VIDEO_HEIGHT = 429;
+    private int videoWidth = 768;
+    private int videoHeight = 576;
 
     private IMediaWriter writer;
     private IMediaReader reader;
@@ -54,9 +38,10 @@ public class ConvertVideo extends MediaToolAdapter implements Runnable {
         if (streamCoder.getCodecType() == ICodec.Type.CODEC_TYPE_AUDIO) {
             writer.addAudioStream(streamIndex, streamIndex, 2, 44100);
         } else if (streamCoder.getCodecType() == ICodec.Type.CODEC_TYPE_VIDEO) {
-            //streamCoder.setWidth(VIDEO_WIDTH);
-            //streamCoder.setHeight(VIDEO_HEIGHT);
-            writer.addVideoStream(streamIndex, streamIndex, VIDEO_WIDTH, VIDEO_HEIGHT);
+            /*streamCoder.setFlag(IStreamCoder.Flags.FLAG2_SHOW_ALL,false);
+            streamCoder.setBitRate(200000);
+            streamCoder.setTimeBase(IRational.make(1,25));*/
+            writer.addVideoStream(streamIndex, streamIndex, getVideoWidth(), getVideoHeight());
         }
         super.onAddStream(event);
     }
@@ -65,9 +50,9 @@ public class ConvertVideo extends MediaToolAdapter implements Runnable {
     public void onVideoPicture(IVideoPictureEvent event) {
         IVideoPicture pic = event.getPicture();
         if (videoResampler == null) {
-            videoResampler = IVideoResampler.make(VIDEO_WIDTH, VIDEO_HEIGHT, pic.getPixelType(), pic.getWidth(), pic.getHeight(), pic.getPixelType());
+            videoResampler = IVideoResampler.make(getVideoWidth(), getVideoHeight(), pic.getPixelType(), pic.getWidth(), pic.getHeight(), pic.getPixelType());
         }
-        IVideoPicture out = IVideoPicture.make(pic.getPixelType(), VIDEO_WIDTH, VIDEO_HEIGHT);
+        IVideoPicture out = IVideoPicture.make(pic.getPixelType(), getVideoWidth(), getVideoHeight());
         videoResampler.resample(out, pic);
 
         IVideoPictureEvent asc = new VideoPictureEvent(event.getSource(), out, event.getStreamIndex());
@@ -97,6 +82,22 @@ public class ConvertVideo extends MediaToolAdapter implements Runnable {
         this.addListener(writer);
         while (reader.readPacket() == null) {
         }
+    }
+
+    public int getVideoWidth() {
+        return videoWidth;
+    }
+
+    public void setVideoWidth(int videoWidth) {
+        this.videoWidth = videoWidth;
+    }
+
+    public int getVideoHeight() {
+        return videoHeight;
+    }
+
+    public void setVideoHeight(int videoHeight) {
+        this.videoHeight = videoHeight;
     }
 
 }
